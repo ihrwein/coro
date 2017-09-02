@@ -1,0 +1,8 @@
+[package]
+name = "coro"
+version = "0.1.0"
+authors = ["Tibor Benke <ihrwein@gmail.com>"]
+
+[dependencies]
+tokio-core = "0.1"
+futures = "0.1"
