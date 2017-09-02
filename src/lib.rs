@@ -1,7 +1,7 @@
 extern crate futures;
 extern crate tokio_core;
 
-use tokio_core::reactor::Core;
+use tokio_core::reactor::{Core, Handle};
 use futures::Future;
 
 use std::cell::RefCell;
@@ -23,4 +23,8 @@ pub fn run<F: 'static + Future<Item = (), Error = ()>>(f: F) {
         let handle = core.handle();
         handle.spawn(f);
     });
+}
+
+pub fn handler() -> Handle {
+    CORE.with(|k| k.borrow().handle())
 }
